@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+    --color-primario: #105714;
+    --color-secundario: #cfdaa3;
+    --color-terciario: #62d5d7;
+    --color-cuarternario: #3ebdbd;
+
+    --color-primario-dark: #041c32;
+    --color-secundario-dark: #630808;
+    --color-terciario-dark: #1d5f19;
+    --color-cuaternario-dark: #053e6c;
+
+    --fuente-merri: "Merriweather", serif;
+    --fuente-space: "Space Mono", monospace;
+
+    --bg: var(--color-terciario);
+    --colorFont: var(--color-primario);
+    --header-bg: var(--color-terciario);
+    --font-color-h1: var(--color-primario);
+    --color-msg: var(--color-terciario);
+    --color-font-msg: var(--color-primario);
+    --color-main-der: var(--color-cuarternario);
+    --color-font-der: var(--color-primario);
+    --btn-primario: var(--color-primario);
+    --btn-secundario: var(--color-secundario);
+    --color-encrip-der: var(--color-cuarternario);
+    --color-encrip-der-font: var(--color-primario);
+    --footer-bg: var(--color-cuarternario);
+    --footer-font: rgba(255, 255, 0, 0.541);
+}
+
+.dark__theme {
+    --bg: var(--color-primario-dark);
+    --colorFont: var(--color-secundario);
+    --header-bg: var(--color-primario-dark);
+    --font-color-h1: var(--color-secundario-dark);
+    --color-msg: var(--color-primario-dark);
+    --color-font-msg: var(--color-secundario);
+    --color-main-der: var(--color-terciario-dark);
+    --color-font-der: var(--color-terciario);
+    --btn-primario: var(--color-secundario-dark);
+    --btn-secundario: var(--color-cuaternario-dark);
+    --color-encrip-der: var(--color-terciario-dark);
+    --color-encrip-der-font: var(--color-secundario-dark);
+    --footer-bg: var(--color-secundario-dark);
+    --footer-font: rgba(255, 255, 0, 0.541);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: var(--fuente-space);
+    background-color: var(--bg);
+    color: var(--colorFont);
+}
+
+header {
+    padding: 2% 0% 3% 5%;
+    display: flex;
+    background-color: var(--header-bg);
+}
+
+.switch-name {
+    --dark-sky: #dc9b4c;
+    --light-sky: #1b8f99;
+    display: inline-block;
+    position: relative;
+    border-radius: 1em;
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+    overflow: hidden;
+    transition: all 1.5s;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+.switch-name .back {
+    background-color: var(--dark-sky);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.switch-name .checkbox {
+    opacity: 0;
+}
+
+.switch-name .checkbox:checked ~ .back {
+    background-color: var(--light-sky);
+}
+
+.switch-name .checkbox:checked ~ .moon {
+    transform: translate(100%) rotate(360deg);
+    opacity: 0;
+}
+
+.switch-name .checkbox:checked ~ .sun {
+    transform: translate(100%) rotate(360deg);
+    opacity: 1;
+}
+
+.switch-name .moon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding: 0.4em;
+    fill: var(--moon);
+    transition: 2.5s;
+}
+
+.switch-name .sun {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding: 0.4em;
+    fill: var(--sun);
+    transition: 2.5s;
+    opacity: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    min-height: 90vh;
+    padding: 0% 5% 0% 10%;
+    gap: 30px;
+}
+
+.main__izq {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main__izq__msg {
+    height: 70%;
+    width: 100%;
+    border: 1px solid #dfcaca;
+    resize: none;
+    color: var(--color-font-msg);
+    font-size: 1.3rem;
+    background-color: var(--color-msg);
+    padding: 10px;
+}
+
+.main__izq__msg::placeholder {
+    color: var(--color-font-msg);
+    font-size: 1.3rem;
+}
+
+.main__izq__group {
+    margin-block: 20px;
+}
+
+.main__izq__span {
+    font-size: 0.8rem;
+}
+
+.main__izq__alert {
+    display: none;
+    color: #973131;
+}
+
+.main__izq__btn,
+.main__der__copiar {
+    font-family: var(--fuente-space);
+    font-size: 1rem;
+    width: 49%;
+    padding: 0.8rem;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btn__encriptar {
+    border: none;
+    background-color: var(--btn-primario);
+    color: var(--btn-secundario);
+}
+
+.btn__desencriptar,
+.main__der__copiar {
+    background-color: var(--btn-secundario);
+    color: var(--btn-primario);
+    border: 1px solid var(--btn-secundario);
+}
+
+.main__der {
+    padding: 3%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 1px 1px 10px #00000062;
+    border-radius: 15px;
+    text-align: center;
+    background-color: var(--color-main-der);
+    color: var(--color-font-der);
+}
+
+.main__der__img {
+    width: 50%;
+}
+
+.main__der__encript {
+    height: 85%;
+    width: 100%;
+    border: none;
+    resize: none;
+    color: var(--color-encrip-der-font);
+    font-size: 1.3rem;
+    background-color: var(--color-encrip-der);
+    display: none;
+}
+
+.main__der__copiado {
+    display: none;
+    color: #973131;
+}
+
+.main__der__copiar {
+    width: 100%;
+    display: none;
+}
+
+footer {
+    background: var(--footer-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--fuente-merri);
+    height: 15%;
+    margin-top: 2%;
+    font-size: 1.5rem;
+    color: var(--footer-font);
+}
+
+@media (max-width: 1200px) {
+    header {
+        padding-block: 5%;
+    }
+    main {
+        flex-direction: column;
+        padding: 5%;
+    }
+
+    h1 {
+        font-size: 2rem;
+        padding: 10px;
+    }
+
+    .main__izq {
+        width: 100%;
+    }
+
+    .main__izq__msg {
+        height: 400px;
+    }
+
+    .main__der {
+        margin-top: 3rem;
+        min-height: 50vh;
+        width: 100%;
+    }
+
+    .main__der__img {
+        display: none;
+    }
+
+    .main__der__encript {
+        min-height: 20rem;
+    }
+
+    footer {
+        margin-top: 5%;
+    }
+}
+@media (max-width: 576px) {
+    header {
+        padding-block: 10%;
+    }
+    .main__izq__btnes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .main__izq__btn {
+        width: 100%;
+    }
+}
