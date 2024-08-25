@@ -1,6 +1,6 @@
 # Encriptador de texto
 
-El encriptador consiste en reemplazar las vocales por otras cadenas de valores, mientas que la desencriptación se basa en el proceso inverso.
+El encriptador consiste en reemplazar las vocales por otras cadenas de valores, mientras que la desencriptación es el proceso inverso.
 
 En este challenge se usa: html, css y javaScript. 
 Se trabaja con estilos, funciones, eventos, variables en css. Además se le añade un toggle para pasar de modo día a modo noche.
